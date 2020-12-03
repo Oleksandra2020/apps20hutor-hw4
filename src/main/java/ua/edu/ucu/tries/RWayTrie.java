@@ -70,7 +70,7 @@ public class RWayTrie implements Trie {
 
     @Override
     public boolean delete(String word) {
-        {  return delete(root, word, 0) != null; }
+        return delete(root, word, 0) != null;
     }
 
     private Node delete(Node x, String key, int d)
@@ -94,16 +94,17 @@ public class RWayTrie implements Trie {
         }
         for (char c = 0; c < R; c++)
         {
-            if (x.next[c] != null) return x;
+            if (x.next[c] != null)
+            {
+                return x;
+            }
         }
         return null;
     }
 
     @Override
     public Iterable<String> words() {
-        {
-            return wordsWithPrefix("");
-        }
+        return wordsWithPrefix("");
     }
 
     @Override
