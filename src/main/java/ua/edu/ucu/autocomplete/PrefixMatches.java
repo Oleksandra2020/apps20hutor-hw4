@@ -13,8 +13,8 @@ import java.util.Arrays;
 public class PrefixMatches {
 
     private final Trie trie;
-    private final static int MinimumLength = 2;
-    private final static int ToChange = 3;
+    private static final int MINIMUMLENGTH = 2;
+    private static final int CHANGETO = 3;
 
     public PrefixMatches(Trie trie) {
         this.trie = trie;
@@ -30,7 +30,7 @@ public class PrefixMatches {
 
         for (String string: allStrings)
         {
-            if (string.length() > MinimumLength)
+            if (string.length() > MINIMUMLENGTH)
             {
                 Tuple tp = new Tuple(string, string.length());
                 trie.add(tp);
@@ -48,7 +48,7 @@ public class PrefixMatches {
     }
 
     public Iterable<String> wordsWithPrefix(String pref) {
-        if (pref.length() >= MinimumLength)
+        if (pref.length() >= MINIMUMLENGTH)
         {
             return trie.wordsWithPrefix(pref);
         } else
@@ -59,8 +59,8 @@ public class PrefixMatches {
     }
 
     public Iterable<String> wordsWithPrefix(String pref, int k) {
-        if (k == MinimumLength) { k = ToChange; }
-        else if (k < MinimumLength)
+        if (k == MINIMUMLENGTH) { k = CHANGETO; }
+        else if (k < MINIMUMLENGTH)
         {
             throw new IllegalArgumentException(
                     "Please, provide a longer prefix");
